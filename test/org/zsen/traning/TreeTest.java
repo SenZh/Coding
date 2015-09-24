@@ -15,7 +15,7 @@ public class TreeTest {
 		TreeNode n2r=new TreeNode("n2r");
 		n1l.left=n2l;
 		n1l.right=n2r;
-		Tree.traversePostOrder(n0);
+		Tree.loopTraversePreOrder(n0);
 	}
 
 }

@@ -7,6 +7,28 @@ import java.util.HashMap;
  * @date 2015年9月23日
  */
 public class Recursion {
+	public static int bagProblemAdvanced(Item[] items,int money,HashMap<String, String> stored)
+	{
+
+		int remain_money,max=0,temp_max,maxi=0;
+		for(int i=0;i<items.length;i++)
+		{
+			if((remain_money=money-items[i].size)>=0)
+				if((temp_max=bagProblemAdvanced(items,remain_money,stored)+items[i].val)>max)
+				{
+					max=temp_max;
+					maxi=i;
+					if(stored.containsKey(String.valueOf(max-items[i].val)))
+						stored.put(String.valueOf(max), stored.get(String.valueOf(max-items[i].val))+","+i);
+					else
+						stored.put(String.valueOf(max), ","+i);
+				}
+		
+		}
+			
+		return max;
+		
+	}
 	
 	/**
 	 * 

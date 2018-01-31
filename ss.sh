@@ -174,8 +174,7 @@ pre_install(){
     while true
     do
     echo "Please enter a port for shadowsocks-python [1-65535]"
-    # read -p "(Default port: 8989):" shadowsocksport
-	shadowsocksport="9000"
+    shadowsocksport="9000"
     [ -z "$shadowsocksport" ] && shadowsocksport="8989"
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
@@ -199,8 +198,7 @@ pre_install(){
         hint="${ciphers[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
     done
-    #read -p "Which cipher you'd select(Default: ${ciphers[0]}):" pick
-	pick=7
+    pick=7
     [ -z "$pick" ] && pick=1
     expr ${pick} + 1 &>/dev/null
     if [ $? -ne 0 ]; then
@@ -222,7 +220,6 @@ pre_install(){
 
     echo
     echo "Press any key to start...or Press Ctrl+C to cancel"
-    #char=`get_char`
     # Install necessary dependencies
     if check_sys packageManager yum; then
         yum install -y python python-devel python-setuptools openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
